@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Gorgias Helper",
+  "version": "1.0",
+  "description": "A Chrome extension to enhance the Gorgias helpdesk experience.",
+  "permissions": ["activeTab", "storage", "scripting", "declarativeNetRequest"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "bundle.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.gorgias.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
